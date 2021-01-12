@@ -2124,6 +2124,7 @@ class Simulation(object):
         """
         if not dname:
             dname = self.get_filename_prefix() + '-out'
+            self.filename_prefix = ''
 
         closure = {'trashed': False}
 
@@ -2139,8 +2140,7 @@ class Simulation(object):
 
         if self.fields is not None:
             hook()
-        self.filename_prefix = None
-
+       
         return dname
 
     def _run_until(self, cond, step_funcs):
